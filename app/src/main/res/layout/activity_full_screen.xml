@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="model"
+            type="com.nik.picsnap.viewmodel.FullScreenViewModel" />
+
+        <variable
+            name="clickHandler"
+            type="com.nik.picsnap.ui.FullScreenActivity.ClickHandler" />
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout
+
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.FullScreenActivity">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:background="@color/purple_500"
+    bind:layout_constraintTop_toTopOf="parent">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:onClick="@{clickHandler::back}"
+        android:src="@drawable/ic_baseline_arrow_back_ios_24"
+        android:layout_margin="10dp"/>
+
+</LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:transitionName="@string/transition_string"
+        bind:imageUrl="@{model.imageUrlLiveData}"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

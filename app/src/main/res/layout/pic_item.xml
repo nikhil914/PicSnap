@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="model"
+            type="com.nik.picsnap.retrofit.ResponseModel.Hit" />
+        <variable
+            name="clickHandler"
+            type="com.nik.picsnap.util.PicAdapter.ClickHandler" />
+
+
+    </data>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/linear"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:onClick="animateIntent"
+
+    android:layout_margin="2dp">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        tools:src="@drawable/ic_chat"
+        android:clickable="true"
+        android:onClick="@{(View)->clickHandler.viewPic(View,model.webformatURL)}"
+        android:transitionName="@string/transition_string"
+        android:scaleType="fitCenter"
+        bind:imageUrl="@{model.webformatURL}"/>
+
+
+</LinearLayout>
+</layout>
